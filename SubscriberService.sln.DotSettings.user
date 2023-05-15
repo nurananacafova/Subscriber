@@ -1,0 +1,9 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e83f59e4_002D2735_002D4183_002D9a75_002D24e04a82f222/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestSubscriberService" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;xUnit::7D75D0BD-4515-4238-BAE6-987AD76C939E::net6.0::SubscriberServiceUnit.Tests.System.TestSubscriberService&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+    &lt;Project Location="C:\Users\lcadmin\RiderProjects\Task8-1\SubscriberServiceIntegration.Tests" Presentation="&amp;lt;SubscriberServiceIntegration.Tests&amp;gt;" /&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

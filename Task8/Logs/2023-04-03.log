@@ -1,0 +1,5 @@
+2023-04-03 11:43:24.9984||DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|An 'IServiceProvider' was created for internal use by Entity Framework. 
+2023-04-03 11:43:26.6762||DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.4 initialized 'SubscriberDb' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.4' with options: None 
+2023-04-03 11:43:26.7285||DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2023-04-03 11:43:26.8256||DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (93ms). 
+2023-04-03 11:43:26.8404||DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'master' on server 'db'. 

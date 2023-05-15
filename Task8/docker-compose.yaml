@@ -1,0 +1,110 @@
+version: "3.4"
+configs:
+  prometheus_config:
+    file: ./prometheus.yml
+
+services:
+  subscriber:
+    image: subscriber_img:v21.9
+    container_name: subscriber_con
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+  ocelotapigw:
+    image: ocelot_img:v21.2
+    container_name: ocelot_con
+    depends_on:
+      - subscriber
+      - loanservice
+      - responseservice
+      - scoringservice
+    ports:
+      - "5003:5003"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+  
+  loanservice:
+    image: loanservice_img:v74
+    
+    container_name: loanservice_con
+    ports:
+      - "5002:5002"
+    depends_on:
+      - subscriber
+      - db
+      - responseservice
+      - scoringservice
+    links:
+      - subscriber
+  responseservice:
+    image: responseservice_img:v5.9
+    container_name: responseservice_con
+    ports:
+      - "5001:5001"
+  
+  scoringservice:
+    image: scoringservice_img:v8.9
+    container_name: scoringservice_con
+    ports:
+      - "5004:5004"
+    depends_on:
+      - subscriber
+#    links:
+#      - subscriber
+  db:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    container_name: db
+    ports:
+      - "1433:1433"
+    environment:
+      MSSQL_SA_PASSWORD: "A&VeryComplex123Password"
+      ACCEPT_EULA: "Y"
+  
+  
+  
+  #  prometheus:
+  #    image: quay.io/prometheus/prometheus:latest
+  #    ports:
+  #      - "9090:9090"
+  #    configs:
+  #      - source: prometheus_config
+  #        target: /etc/prometheus/prometheus.yml
+  #    depends_on:
+  #      - subscriber
+  #      - loanservice
+  
+  
+  #  prometheus:
+  #    image: quay.io/prometheus/prometheus:latest
+  #    ports:
+  #      - "9090:9090"
+  #    configs:
+  #      - source: prometheus_config
+  #        target: /etc/prometheus/prometheus.yml
+  #    depends_on:
+  #      - subscriber
+  #      - loanservice
+
+
+
+#  prometheus:
+#    image: quay.io/prometheus/prometheus:latest
+#    container_name: prometheus_con
+#    ports:
+#      - "9090:9090"
+#    configs:
+#      - source: prometheus_config
+#    depends_on:
+#      - subscriber
+#      - loanservice
+#  grafana:
+#    image: grafana/grafana
+#    container_name: dev_grafana
+#    ports:
+#      - "3000:3000"
+#    volumes:
+#      - ./grafana-data/data:/var/lib/grafana
+#    depends_on: 
+#      - prometheus

@@ -1,0 +1,10 @@
+2023-04-28 11:57:58.9346||ERROR|Program|System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Task8.Services.ISubscriberService Lifetime: Transient ImplementationType: Task8.Services.SubscriberService': Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'Task8.Services.SubscriberService'. System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Task8.Services.ISubscriberService Lifetime: Transient ImplementationType: Task8.Services.SubscriberService': Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'Task8.Services.SubscriberService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'Task8.Services.SubscriberService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
