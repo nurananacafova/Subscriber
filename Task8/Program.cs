@@ -7,7 +7,6 @@ using SubscriberService.Models;
 using SubscriberService.Services;
 
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
-
 try
 {
     var builder = WebApplication.CreateBuilder();
