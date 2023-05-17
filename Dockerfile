@@ -1,1 +1,1 @@
-﻿FROM nurananajafova/subscriberservice:v1
+﻿FROM nurananajafova/subscriberservice:v2
