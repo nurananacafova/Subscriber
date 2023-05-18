@@ -6,9 +6,9 @@ namespace SubscriberService.Services;
 public interface ISubscriberService
 {
     Task<List<SubscriberModel>> GetSubscribers();
-    Task<SubscriberModel> GetSubscriberById([FromQuery] int id);
-    Task<string> GetLanguage([FromQuery] int id);
-    Task<long> PostSubscriber([FromQuery] SubscriberModel subscriber);
-    Task<long> UpdateSubscriber([FromQuery] SubscriberModel subscriberModel);
-    Task DeleteSubscriber([FromQuery] int id);
+    Task<SubscriberModel> GetSubscriberById(int id);
+    Task<string> GetLanguage(int id);
+    Task<long> PostSubscriber(SubscriberModel subscriber);
+    Task<long> UpdateSubscriber(SubscriberModel subscriberModel);
+    Task DeleteSubscriber(int id);
 }
