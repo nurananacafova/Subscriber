@@ -3,6 +3,7 @@
   &lt;Or&gt;&#xD;
     &lt;TestAncestor&gt;&#xD;
       &lt;TestId&gt;xUnit::7D75D0BD-4515-4238-BAE6-987AD76C939E::net6.0::SubscriberServiceUnit.Tests.System.TestSubscriberService&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::BAA55861-D42F-43DA-AF93-B5D0D5ED8337::net6.0::SubscriberServiceIntegration.Tests.System.IntegrationTests.ProvideSubscriber_ReturnsOk&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
     &lt;Project Location="C:\Users\lcadmin\RiderProjects\Task8-1\SubscriberServiceIntegration.Tests" Presentation="&amp;lt;SubscriberServiceIntegration.Tests&amp;gt;" /&gt;&#xD;
   &lt;/Or&gt;&#xD;

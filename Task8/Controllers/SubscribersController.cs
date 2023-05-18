@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SubscriberService.Models;
 using SubscriberService.Services;
+using SubscriberService.Utility;
 
 namespace SubscriberService.Controllers;
 
@@ -82,7 +83,7 @@ public class SubscribersController : ControllerBase
 
 
     [HttpPost("RegisterSubscriber")]
-    public async Task<ActionResult<long>> PostSubscriber([FromBody] SubscriberModel subscriber)
+    public async Task<ActionResult<long>> PostSubscriber([FromBody] RegisterSubscriber subscriber)
     {
         try
         {
