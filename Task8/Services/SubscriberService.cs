@@ -119,8 +119,13 @@ public class SubscriberService : ISubscriberService
         return (language);
     }
 
-    public async Task<long> PostSubscriber(SubscriberModel subscriber)
+    public async Task<long> PostSubscriber(RegisterSubscriber subscriberModel)
     {
+        SubscriberModel subscriber = new SubscriberModel();
+        subscriber.language = subscriberModel.language;
+        subscriber.email = subscriberModel.email;
+        subscriber.registration_date = subscriberModel.registration_date;
+
         int subscriberId = 0;
         try
         {
