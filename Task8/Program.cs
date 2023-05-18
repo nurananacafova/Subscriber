@@ -12,7 +12,7 @@ try
 {
     var builder = WebApplication.CreateBuilder();
     builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
+    builder.Services.AddSwaggerGen(_=>_.EnableAnnotations());
 
     builder.WebHost.UseUrls("http://*:5000");
 
