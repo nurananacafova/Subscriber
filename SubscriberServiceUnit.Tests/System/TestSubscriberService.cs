@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using Moq.EntityFrameworkCore;
 using SubscriberService.Models;
+using SubscriberService.Utility;
 using SubscriberServiceUnit.Tests.MockData;
 
 namespace SubscriberServiceUnit.Tests.System;
@@ -97,25 +98,28 @@ public class TestSubscriberService
         Assert.Null(result);
     }
 
-    // [Fact]
-    // public async Task RegisterSubscriber_ReturnsOK()
-    // {
-    //     var subscriber = new SubscriberModel()
-    //     {
-    //         id = 1,
-    //         language = "az",
-    //         email = "newmailfortests1@gmail.com",
-    //         registration_date = Convert.ToDateTime("2022-04-04")
-    //     };
-    //     var loggerMock = new Mock<ILogger<SubscriberService.Services.SubscriberService>>();
-    //     var dbMock = new Mock<SubscriberDb>();
-    //     dbMock.Setup(x => x.Subscribers).ReturnsDbSet(new[] { subscriber });
-    //     var sut = new SubscriberService.Services.SubscriberService(loggerMock.Object, dbMock.Object);
-    //
-    //     var result = await sut.PostSubscriber(subscriber);
-    //
-    //     Assert.Equal(1, result);
-    // }
+    [Fact]
+    public async Task RegisterSubscriber_ReturnsOK()
+    {
+        SubscriberModel subscriberModel = new SubscriberModel();
+        var subscriber = new RegisterSubscriber()
+        {
+            // id = 1,
+            language = "az",
+            email = "newmailfortests1@gmail.com",
+            registration_date = Convert.ToDateTime("2022-04-04")
+        };
+        var loggerMock = new Mock<ILogger<SubscriberService.Services.SubscriberService>>();
+        var dbMock = new Mock<SubscriberDb>();
+        dbMock.Setup(x => x.Subscribers).ReturnsDbSet(new[] { subscriberModel });
+
+        // dbMock.Setup(x => x.Subscribers).ReturnsDbSet(new[] { subscriber });
+        var sut = new SubscriberService.Services.SubscriberService(loggerMock.Object, dbMock.Object);
+
+        var result = await sut.PostSubscriber(subscriber);
+        Assert.IsType<long>(result);
+        // Assert.Equal(1, result);
+    }
 
 
     [Fact]

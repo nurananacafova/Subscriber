@@ -1,0 +1,67 @@
+version: "3.4"
+configs:
+  prometheus_config:
+    file: ./prometheus.yml
+services:
+  subscriber:
+    image: subscriber_img:v22.4
+    container_name: subscriber_con
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+           
+  loanservice:
+    image: loanservice_img:v74.7
+    container_name: loanservice_con
+    ports:
+      - "5002:5002"
+    depends_on:
+      - subscriber
+      - db
+      - responseservice
+      - scoringservice
+    links:
+      - subscriber
+    
+  responseservice:
+    image: responseservice_img:v6.4
+    container_name: responseservice_con
+    ports:
+      - "5001:5001"
+  
+  scoringservice:
+    image: scoringservice_img:v9.7
+    container_name: scoringservice_con
+    ports:
+      - "5004:5004"
+    depends_on:
+      - subscriber
+
+  db:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    container_name: db
+    ports:
+      - "1433:1433"
+    environment:
+      MSSQL_SA_PASSWORD: "A&VeryComplex123Password"
+      ACCEPT_EULA: "Y"
+  
+  nginx:
+    image: nginx_img:v2.4
+    container_name: nginx_con
+    ports:
+      - 80:80
+  
+  ocelotapigw:
+    image: ocelot_img:v21.4
+    container_name: ocelot_con
+    depends_on:
+      - subscriber
+      - loanservice
+      - responseservice
+      - scoringservice
+    ports:
+      - "5003:5003"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
